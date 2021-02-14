@@ -8,6 +8,8 @@
 #include"GameInterface.h"
 #include "Scene.h"
 
+#include"../Rendering/3D/GameObject.h"
+
 class HumberEngine
 {
 public:
@@ -15,6 +17,7 @@ public:
 	HumberEngine(HumberEngine&&)=delete;
 	HumberEngine& operator =(const HumberEngine&) = delete;
 	HumberEngine& operator =(HumberEngine&&) = delete;
+
 	static HumberEngine* GetInstance();
 
 	bool OnCreate(std::string name_, int width_, int height_);

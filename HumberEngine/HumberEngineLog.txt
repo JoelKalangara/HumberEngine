@@ -1,1 +1,4 @@
+[INFO]: OpenGL version: 4.5.0 - Build 23.20.16.5018 in: Window.cpp on line: 47
+[INFO]: Creating StartScene in: StartScene.cpp on line: 14
 [INFO]: Everthing worked in: HumberEngine.cpp on line: 45
+[INFO]: Creating GameScene in: GameScene.cpp on line: 16
