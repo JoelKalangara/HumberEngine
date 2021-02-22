@@ -31,6 +31,8 @@ bool HumberEngine::OnCreate(std::string name_, int width_, int height_)
 		return isRunning = false;
 	}
 
+	ShaderHandler::GetInstance()->CreateProgram("colourShader", "Engine/Shaders/ColourVertexShader.glsl", "Engine/Shaders/ColourFragmentShader.glsl");
+
 	if (gameInterface)
 	{
 		if (!gameInterface->OnCreate())
@@ -111,6 +113,8 @@ void HumberEngine::Render()
 void HumberEngine::OnDestroy()
 {
 	//always destroy from the inside out
+
+	ShaderHandler::GetInstance()->OnDestroy();
 
 	delete gameInterface;
 	gameInterface = nullptr;
