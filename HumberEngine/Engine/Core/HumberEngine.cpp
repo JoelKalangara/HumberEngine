@@ -79,6 +79,21 @@ int HumberEngine::GetCurrentScene() const
 	return currentSceneNum;
 }
 
+float HumberEngine::GetScreenWidth() const
+{
+	return static_cast<float>(window->GetWidth());
+}
+
+float HumberEngine::GetScreenHeight() const
+{
+	return static_cast<float>(window->GetHeight());
+}
+
+Camera* HumberEngine::GetCamera() const
+{
+	return camera;
+}
+
 void HumberEngine::SetGameInterface(GameInterface* gameInterface_)
 {
 	gameInterface = gameInterface_;
@@ -89,12 +104,16 @@ void HumberEngine::SetCurrentScene(int sceneNum_)
 	currentSceneNum = sceneNum_;
 }
 
+void HumberEngine::SetCamera(Camera* camera_)
+{
+	camera = camera_;
+}
+
 void HumberEngine::Update(const float deltaTime_)
 {
 	if (gameInterface)
 	{
 		gameInterface->Update(deltaTime_);
-		//std::cout << deltaTime_ << std::endl;
 	}
 }
 
@@ -118,6 +137,9 @@ void HumberEngine::OnDestroy()
 
 	delete gameInterface;
 	gameInterface = nullptr;
+
+	delete camera;
+	camera = nullptr;
 
 	delete window;
 	window = nullptr;

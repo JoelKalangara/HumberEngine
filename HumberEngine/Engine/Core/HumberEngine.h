@@ -1,8 +1,9 @@
 #ifndef HUMBERENGINE_
 #define HUMBERENGINE_
 
-#include"Window.h"
 #include<memory>
+
+#include"Window.h"
 #include"Timer.h"
 #include"Debug.h"
 #include"GameInterface.h"
@@ -11,6 +12,8 @@
 #include"../Rendering/3D/GameObject.h"
 
 #include"../Graphics/ShaderHandler.h"
+
+#include "../Camera/Camera.h"
 
 class HumberEngine
 {
@@ -28,9 +31,13 @@ public:
 
 	bool GetIsRunning() const;
 	int GetCurrentScene() const;
+	float GetScreenWidth() const;
+	float GetScreenHeight() const;
+	Camera* GetCamera() const;
 
 	void SetGameInterface(GameInterface* gameInterface_);
 	void SetCurrentScene(int sceneNum_);
+	void SetCamera(Camera* camera_);
 
 private:
 	HumberEngine();
@@ -51,6 +58,8 @@ private:
 	GameInterface* gameInterface;
 
 	int currentSceneNum;
+
+	Camera* camera;
 };
 #endif // !HUMBERENGINE_
 
